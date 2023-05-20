@@ -1,7 +1,7 @@
 import MultitoolTree
 
 public extension TransferGroup {
-  struct New: Hashable {
+  struct New: Hashable, Codable {
     public let info: TransferUnit.Info
     public private(set) var transferUnits: [TransferUnit.New]?
 

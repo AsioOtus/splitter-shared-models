@@ -1,7 +1,7 @@
 import Foundation
 
 public extension Transfer {
-  struct Update: Identifiable, Hashable {
+  struct Update: Identifiable, Hashable, Codable {
     public let id: UUID
     public let info: TransferUnit.Info
     public let amountValue: Double
