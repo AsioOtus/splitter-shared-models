@@ -9,7 +9,7 @@ public extension Transfer {
     public let creditorId: UUID
     public let borrowerId: UUID?
 
-    init (
+    public init (
       id: UUID,
       info: TransferUnit.Info,
       amountValue: Double,
