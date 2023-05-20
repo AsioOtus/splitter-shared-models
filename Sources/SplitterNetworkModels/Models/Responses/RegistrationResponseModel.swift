@@ -1,5 +1,5 @@
 import Foundation
-import SharedModels
+import SplitterSharedModels
 
 public struct RegistrationResponseModel: ResponseNetworkModel {
 	public let user: User

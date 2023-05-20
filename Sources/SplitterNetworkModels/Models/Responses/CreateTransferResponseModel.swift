@@ -1,5 +1,5 @@
 import Foundation
-import SharedModels
+import SplitterSharedModels
 
 public struct CreateTransferResponseModel: ResponseNetworkModel {
 	public let transfer: Transfer
