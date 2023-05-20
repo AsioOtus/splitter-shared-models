@@ -1,4 +1,4 @@
-public struct Amount: Hashable {
+public struct Amount: Hashable, Codable {
   public let value: Double
   public let currency: Currency
   

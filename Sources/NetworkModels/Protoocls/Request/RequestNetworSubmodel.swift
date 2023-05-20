@@ -1,0 +1,1 @@
+public protocol RequestNetworkSubmodel: NetworkSubmodel { }

@@ -1,7 +1,7 @@
 import Foundation
 import MultitoolTree
 
-public struct Transfer: Identifiable, Hashable {
+public struct Transfer: Identifiable, Hashable, Codable {
   public let id: UUID
   public let info: TransferUnit.Info
   public let amount: Amount

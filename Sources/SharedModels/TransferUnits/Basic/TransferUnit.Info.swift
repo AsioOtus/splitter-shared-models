@@ -1,7 +1,7 @@
 import Foundation
 
 extension TransferUnit {
-  public struct Info: Hashable {
+  public struct Info: Hashable, Codable {
     public let name: String?
     public let note: String?
     public let date: Date?

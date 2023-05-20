@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Currency: Hashable {
+public struct Currency: Hashable, Codable {
   public let id: UUID
   public let code: String
   
