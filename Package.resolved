@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "multitool",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AsioOtus/Multitool",
+      "state" : {
+        "branch" : "main",
+        "revision" : "faa1bc612d8985ddec359e381f198869b3de9018"
+      }
+    },
+    {
+      "identity" : "multitoolcomplex",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AsioOtus/MultitoolComplex",
+      "state" : {
+        "branch" : "main",
+        "revision" : "efd4ae52f902e025bea46bd6c0c7ba9edd7c4fe9"
+      }
+    }
+  ],
+  "version" : 2
+}
