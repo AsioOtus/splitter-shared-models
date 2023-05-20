@@ -16,13 +16,9 @@ public struct DomainError: Error, Equatable, ResponseNetworkModel {
   }
 }
 
-
-
 public extension Path {
 	static let general: Self = "general"
 }
-
-
 
 extension DomainError {
   public struct DetailsKey: ResponseNetworkSubmodel, Hashable {
