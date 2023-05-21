@@ -1,6 +1,6 @@
 import SplitterSharedModels
 
-public struct CreateTransferGroupResponseModel: ResponseNetworkModel {
+public struct UpdateTransferGroupResponseModel: ResponseNetworkModel {
   public let transferGroup: TransferGroup
 
   public init (transferGroup: TransferGroup) {
@@ -9,7 +9,7 @@ public struct CreateTransferGroupResponseModel: ResponseNetworkModel {
 
   public init (from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
-    
+
     self.transferGroup = try container.decode(TransferGroup.self, forKey: .transferGroup)
   }
 }
