@@ -45,43 +45,32 @@ public extension TransferGroup {
 
 public extension TransferGroup {
   var amounts: [Amount] {
-    transferUnits.flatMap { $0.amounts }
+    transferUnits.flatMap { $0.amounts }.compactMap { $0 }
   }
   
-  var summarizedAmounts: [Amount] {
-    var result = [Amount]()
-    
-    for amount in amounts {
-      if
-        let index = result.firstIndex(where: { $0.currency == amount.currency }),
-        let sum = result[index] + amount
-      {
-        result[index] = sum
-      } else {
-        result.append(amount)
-      }
-    }
-    
-    return result
+  var amountsSum: [Amount] {
+    var dictionary = [Currency: Double]()
+    amounts.compactMap { $0 }.forEach { dictionary[$0.currency]? += $0.value }
+    return dictionary.map { currency, value in .init(value: value, currency: currency) }
   }
   
   var creditors: [User] {
-    transferUnits.flatMap { $0.creditors }
+    transferUnits.flatMap { $0.creditors }.compactMap { $0 }
   }
   
-  var uniqueCreditors: [User] {
-    .init(Set(creditors)).sorted { $0.name > $1.name }
+  var uniqueCreditors: Set<User> {
+    .init(creditors)
   }
 
   var singleCreditor: User? {
     uniqueCreditors.count == 1 ? uniqueCreditors.first : nil
   }
   
-  var borrowers: [User?] {
-    transferUnits.flatMap { $0.borrowers }
+  var borrowers: [User] {
+    transferUnits.flatMap { $0.borrowers }.compactMap { $0 }
   }
   
-  var uniqueBorrowers: [User?] {
-    .init(Set(borrowers)).compactMap{ $0 }.sorted { $0.name > $1.name }
+  var uniqueBorrowers: Set<User> {
+    .init(borrowers)
   }
 }

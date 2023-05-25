@@ -11,7 +11,7 @@ public extension TransferUnit {
     }
   }
 
-  var amounts: [Amount] {
+  var amounts: [Amount?] {
     switch self {
     case .leaf(let transfer): return [transfer.amount]
     case .node(let transferUnitGroup): return transferUnitGroup.amounts
@@ -20,12 +20,12 @@ public extension TransferUnit {
 
   var summarizedAmounts: [Amount] {
     switch self {
-    case .leaf(let transfer): return [transfer.amount]
-    case .node(let transferUnitGroup): return transferUnitGroup.summarizedAmounts
+    case .leaf(let transfer): return [transfer.amount].compactMap { $0 }
+    case .node(let transferUnitGroup): return transferUnitGroup.amountsSum
     }
   }
 
-  var creditors: [User] {
+  var creditors: [User?] {
     switch self {
     case .leaf(let transfer): return [transfer.creditor]
     case .node(let transferUnitGroup): return transferUnitGroup.creditors
