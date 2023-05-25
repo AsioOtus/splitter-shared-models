@@ -12,11 +12,4 @@ public struct UpdateTransferGroupInfoRequestModel: RequestNetworkModel {
     self.transferGroupInfo = transferGroupInfo
     self.transferGroupId = transferGroupId
   }
-
-  public init (from decoder: Decoder) throws {
-    let container = try decoder.container(keyedBy: CodingKeys.self)
-
-    self.transferGroupInfo = try container.decode(TransferUnit.Info.self, forKey: .transferGroupInfo)
-    self.transferGroupId = try container.decode(UUID.self, forKey: .transferGroupId)
-  }
 }
