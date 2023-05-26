@@ -6,10 +6,4 @@ public struct CreateTransferGroupResponseModel: ResponseNetworkModel {
   public init (transferGroup: TransferGroup) {
     self.transferGroup = transferGroup
   }
-
-  public init (from decoder: Decoder) throws {
-    let container = try decoder.container(keyedBy: CodingKeys.self)
-    
-    self.transferGroup = try container.decode(TransferGroup.self, forKey: .transferGroup)
-  }
 }

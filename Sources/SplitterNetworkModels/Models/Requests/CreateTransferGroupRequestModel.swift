@@ -15,12 +15,4 @@ public struct CreateTransferGroupRequestModel: RequestNetworkModel {
     self.superTransferGroupId = superTransferGroupId
     self.userGroupId = userGroupId
   }
-
-  public init (from decoder: Decoder) throws {
-    let container = try decoder.container(keyedBy: CodingKeys.self)
-
-    self.transferGroup = try container.decode(TransferGroup.New.self, forKey: .transferGroup)
-    self.superTransferGroupId = try container.decodeIfPresent(UUID.self, forKey: .superTransferGroupId)
-    self.userGroupId = try container.decode(UUID.self, forKey: .userGroupId)
-  }
 }
