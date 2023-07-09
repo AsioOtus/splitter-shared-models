@@ -1,6 +1,6 @@
 import Foundation
 
-public struct UserAmounts: Equatable, Codable {
+public struct UserAmounts: Hashable, Codable {
 	public let user: User
 	public let amounts: [Amount]
 
