@@ -9,3 +9,9 @@ public struct Currency: Hashable, Codable {
     self.code = code
   }
 }
+
+extension Currency {
+	public static func == (_ lhs: Self, _ rhs: Self) -> Bool {
+		lhs.id == rhs.id
+	}
+}
