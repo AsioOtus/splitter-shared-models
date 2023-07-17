@@ -5,4 +5,12 @@ public struct UserBalance: Hashable {
 	public var totalAmount: [Amount] {
 		relatedUserAmounts.flatMap { $0.amounts }.reduced()
 	}
+
+	public init (
+		user: User,
+		relatedUserAmounts: [UserAmounts]
+	) {
+		self.user = user
+		self.relatedUserAmounts = relatedUserAmounts
+	}
 }
