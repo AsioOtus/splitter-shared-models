@@ -1,4 +1,4 @@
-public struct UserSummary: Hashable {
+public struct UserSummary: Hashable, Codable {
 	public let user: User
 	public let relatedUserAmounts: [UserAmounts]
 
