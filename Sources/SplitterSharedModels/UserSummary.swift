@@ -1,4 +1,4 @@
-public struct UserBalance: Hashable {
+public struct UserSummary: Hashable {
 	public let user: User
 	public let relatedUserAmounts: [UserAmounts]
 
