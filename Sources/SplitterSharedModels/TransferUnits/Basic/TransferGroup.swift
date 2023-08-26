@@ -50,8 +50,12 @@ public extension TransferGroup {
   
   var amountsSum: [Amount] {
     var dictionary = [Currency: Double]()
-    amounts.compactMap { $0 }.forEach { dictionary[$0.currency]? += $0.value }
-    return dictionary.map { currency, value in .init(value: value, currency: currency) }
+    amounts
+			.compactMap { $0 }
+			.forEach { dictionary[$0.currency, default: 0] += $0.value }
+
+		let amountsSum = dictionary.map { currency, value in Amount(value: value, currency: currency) }
+    return amountsSum
   }
   
   var creditors: [User] {
