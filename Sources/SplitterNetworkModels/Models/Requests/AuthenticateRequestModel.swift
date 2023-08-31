@@ -1,6 +1,6 @@
 import Foundation
 
-public struct AuthenticationRequestModel: RequestNetworkModel {
+public struct AuthenticateRequestModel: RequestNetworkModel {
 	public let login: String
 	public let password: String
 
