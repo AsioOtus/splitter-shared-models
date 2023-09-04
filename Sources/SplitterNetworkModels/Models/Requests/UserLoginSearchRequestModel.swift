@@ -1,4 +1,4 @@
-public struct UserRequestModel: RequestNetworkModel {
+public struct UserLoginSearchRequestModel: RequestNetworkModel {
   public let login: String
 
   public init (login: String) {
