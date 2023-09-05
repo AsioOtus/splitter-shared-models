@@ -1,3 +1,3 @@
 public struct SuccessResponseModel: ResponseNetworkModel, Equatable {
-	public init () { }
+  public let message = "Success"
 }
