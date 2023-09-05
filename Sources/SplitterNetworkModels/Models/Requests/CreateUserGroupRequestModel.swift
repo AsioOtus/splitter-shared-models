@@ -11,11 +11,11 @@ public struct CreateUserGroupRequestModel: RequestNetworkModel {
 extension CreateUserGroupRequestModel {
 	public struct UserGroup: NetworkSubmodel {
 		public let name: String
-		public let ownerId: UUID
+    public let users: [UUID]
 
-		public init (name: String, ownerId: UUID) {
+		public init (name: String, users: [UUID]) {
 			self.name = name
-			self.ownerId = ownerId
+			self.users = users
 		}
 	}
 }
