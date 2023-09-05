@@ -1,7 +1,7 @@
 import Foundation
 
 extension UserGroup {
-  struct New {
+  public struct New {
     public let name: String
     public let userIds: [UUID]
 
