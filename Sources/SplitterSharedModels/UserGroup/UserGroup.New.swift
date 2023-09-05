@@ -1,7 +1,7 @@
 import Foundation
 
 extension UserGroup {
-  public struct New {
+  public struct New: Codable {
     public let name: String
     public let userIds: [UUID]
 

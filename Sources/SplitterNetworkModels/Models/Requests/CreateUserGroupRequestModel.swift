@@ -1,21 +1,10 @@
 import Foundation
+import SplitterSharedModels
 
 public struct CreateUserGroupRequestModel: RequestNetworkModel {
-	public let userGroup: UserGroup
+  public let userGroup: UserGroup.New
 
-	public init (userGroup: UserGroup) {
+	public init (userGroup: UserGroup.New) {
 		self.userGroup = userGroup
-	}
-}
-
-extension CreateUserGroupRequestModel {
-	public struct UserGroup: NetworkSubmodel {
-		public let name: String
-    public let users: [UUID]
-
-		public init (name: String, users: [UUID]) {
-			self.name = name
-			self.users = users
-		}
 	}
 }
