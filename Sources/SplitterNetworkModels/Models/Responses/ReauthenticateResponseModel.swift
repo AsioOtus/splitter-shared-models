@@ -1,7 +1,7 @@
 import Foundation
 import SplitterSharedModels
 
-public struct ReauthenticateResponseModel: RequestNetworkModel {
+public struct ReauthenticateResponseModel: ResponseNetworkModel {
   public let tokenPair: TokenPair
 
   public init (tokenPair: TokenPair) {
