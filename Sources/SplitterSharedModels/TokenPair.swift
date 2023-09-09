@@ -1,4 +1,4 @@
-public struct Tokens: Codable, Hashable {
+public struct TokenPair: Codable, Hashable {
   public let access: String
   public let refresh: String
 
