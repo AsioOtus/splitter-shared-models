@@ -9,7 +9,7 @@ public struct User: Hashable, Codable {
   public init (
     id: UUID,
     name: String,
-    email: String? = nil,
+    email: String,
     login: String
   ) {
     self.id = id
