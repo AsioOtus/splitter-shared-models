@@ -17,7 +17,7 @@ extension User {
       self.password = password
     }
 
-    public func copy (password: String) -> Self {
+    public func set (password: String) -> Self {
       .init(name: name, email: email, login: login, password: password)
     }
   }

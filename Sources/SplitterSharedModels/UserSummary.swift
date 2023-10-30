@@ -1,5 +1,5 @@
 public struct UserSummary: Hashable, Codable {
-	public let user: User
+  public let user: User.Compact
 	public let relatedUserAmounts: [UserAmounts]
 
 	public var totalAmount: [Amount] {
@@ -7,7 +7,7 @@ public struct UserSummary: Hashable, Codable {
 	}
 
 	public init (
-		user: User,
+		user: User.Compact,
 		relatedUserAmounts: [UserAmounts]
 	) {
 		self.user = user

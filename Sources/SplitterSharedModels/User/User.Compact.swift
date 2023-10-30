@@ -1,7 +1,7 @@
 import Foundation
 
 extension User {
-  public struct Compact: Codable {
+  public struct Compact: Hashable, Codable {
     public let id: UUID
     public let name: String
 

@@ -3,13 +3,13 @@ import Foundation
 public struct User: Hashable, Codable {
   public let id: UUID
   public let name: String
-  public let email: String
+  public let email: String?
   public let login: String
   
   public init (
     id: UUID,
     name: String,
-    email: String,
+    email: String?,
     login: String
   ) {
     self.id = id
