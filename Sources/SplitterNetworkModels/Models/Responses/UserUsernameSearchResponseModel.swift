@@ -1,6 +1,6 @@
 import SplitterSharedModels
 
-public struct UserLoginSearchResponseModel: ResponseNetworkModel {
+public struct UserUsernameSearchResponseModel: ResponseNetworkModel {
   public let user: User?
 
   public init (user: User?) {

@@ -4,18 +4,18 @@ public struct User: Hashable, Codable {
   public let id: UUID
   public let name: String
   public let email: String?
-  public let login: String
-  
+  public let username: String
+
   public init (
     id: UUID,
     name: String,
     email: String?,
-    login: String
+    username: String
   ) {
     self.id = id
     self.name = name
     self.email = email
-    self.login = login
+    self.username = username
   }
 
   public var firstLetters: String { .init(name.prefix(2)) }
