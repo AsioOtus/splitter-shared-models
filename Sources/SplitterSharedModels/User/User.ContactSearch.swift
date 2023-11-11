@@ -1,5 +1,5 @@
 public extension User {
-  struct ContactSearch: Codable {
+  struct ContactSearch: Hashable, Codable {
     public let user: User.Compact
     public let isContact: Bool
 
