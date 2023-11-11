@@ -1,10 +1,9 @@
-import Foundation
 import SplitterSharedModels
 
 public struct ContactSearchResponseModel: ResponseNetworkModel {
-  public let user: User.Compact?
+  public let searchResult: User.ContactSearch?
 
-  public init (user: User.Compact?) {
-    self.user = user
+  public init (searchResult: User.ContactSearch?) {
+    self.searchResult = searchResult
   }
 }
