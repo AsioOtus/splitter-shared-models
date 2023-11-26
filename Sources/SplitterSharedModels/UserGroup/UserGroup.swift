@@ -1,6 +1,6 @@
 import Foundation
 
-public struct UserGroup {
+public struct UserGroup: Equatable {
   public let id: UUID
   public let name: String
 
