@@ -31,11 +31,11 @@ public extension Amount {
 }
 
 public extension Amount {
-  func copy (value: Double) -> Self {
+  func set (value: Double) -> Self {
     .init(value: value, currency: currency)
   }
 
-  func copy (currency: Currency) -> Self {
+  func set (currency: Currency) -> Self {
     .init(value: value, currency: currency)
   }
 }
