@@ -5,15 +5,15 @@ public struct Transfer: Identifiable, Hashable, Codable {
   public let id: UUID
   public let info: TransferUnit.Info
   public let amount: Amount?
-  public let creditor: User?
-  public let borrower: User?
+	public let creditor: User.Compact?
+  public let borrower: User.Compact?
   
   public init (
     id: UUID = .init(),
     info: TransferUnit.Info,
     amount: Amount?,
-    creditor: User?,
-    borrower: User?
+    creditor: User.Compact?,
+    borrower: User.Compact?
   ) {
     self.id = id
     self.info = info

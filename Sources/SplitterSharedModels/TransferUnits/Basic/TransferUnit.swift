@@ -25,14 +25,14 @@ public extension TransferUnit {
     }
   }
 
-  var creditors: [User?] {
+  var creditors: [User.Compact?] {
     switch self {
     case .leaf(let transfer): return [transfer.creditor]
     case .node(let transferUnitGroup): return transferUnitGroup.creditors
     }
   }
 
-  var borrowers: [User?] {
+  var borrowers: [User.Compact?] {
     switch self {
     case .leaf(let transfer): return [transfer.borrower]
     case .node(let transferUnitGroup): return transferUnitGroup.borrowers

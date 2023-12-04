@@ -58,23 +58,23 @@ public extension TransferGroup {
     return amountsSum
   }
   
-  var creditors: [User] {
+  var creditors: [User.Compact] {
     transferUnits.flatMap { $0.creditors }.compactMap { $0 }
   }
   
-  var uniqueCreditors: Set<User> {
+  var uniqueCreditors: Set<User.Compact> {
     .init(creditors)
   }
 
-  var singleCreditor: User? {
+  var singleCreditor: User.Compact? {
     uniqueCreditors.count == 1 ? uniqueCreditors.first : nil
   }
   
-  var borrowers: [User] {
+  var borrowers: [User.Compact] {
     transferUnits.flatMap { $0.borrowers }.compactMap { $0 }
   }
   
-  var uniqueBorrowers: Set<User> {
+  var uniqueBorrowers: Set<User.Compact> {
     .init(borrowers)
   }
 }
