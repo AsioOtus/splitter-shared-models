@@ -57,11 +57,19 @@ public extension TransferGroup {
 		let amountsSum = dictionary.map { currency, value in Amount(value: value, currency: currency) }
     return amountsSum
   }
-  
+
+	var singleCurrency: Currency? {
+		amountsSum.count == 1 ? amountsSum.first?.currency : nil
+	}
+
+	var isSingleCurrency: Bool {
+		singleCurrency != nil
+	}
+
   var creditors: [User.Compact] {
     transferUnits.flatMap { $0.creditors }.compactMap { $0 }
   }
-  
+
   var uniqueCreditors: Set<User.Compact> {
     .init(creditors)
   }
@@ -69,7 +77,11 @@ public extension TransferGroup {
   var singleCreditor: User.Compact? {
     uniqueCreditors.count == 1 ? uniqueCreditors.first : nil
   }
-  
+
+	var isSingleCreditor: Bool {
+		singleCreditor != nil
+	}
+
   var borrowers: [User.Compact] {
     transferUnits.flatMap { $0.borrowers }.compactMap { $0 }
   }
@@ -77,8 +89,4 @@ public extension TransferGroup {
   var uniqueBorrowers: Set<User.Compact> {
     .init(borrowers)
   }
-
-	var firstLevelTransfers: [Transfer] {
-		transferUnits.compactMap { $0.leafValue }
-	}
 }
