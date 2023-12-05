@@ -77,4 +77,8 @@ public extension TransferGroup {
   var uniqueBorrowers: Set<User.Compact> {
     .init(borrowers)
   }
+
+	var firstLevelTransfers: [Transfer] {
+		transferUnits.compactMap { $0.leafValue }
+	}
 }
