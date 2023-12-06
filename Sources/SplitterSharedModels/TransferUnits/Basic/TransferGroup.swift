@@ -44,6 +44,12 @@ public extension TransferGroup {
 }
 
 public extension TransferGroup {
+	var isSplit: Bool {
+		isSingleCreditor && isSingleCurrency && !hasDuplicatedBorrowers && !hasNestedGroups
+	}
+}
+
+public extension TransferGroup {
   var amounts: [Amount] {
     transferUnits.flatMap { $0.amounts }.compactMap { $0 }
   }
@@ -85,8 +91,16 @@ public extension TransferGroup {
   var borrowers: [User.Compact] {
     transferUnits.flatMap { $0.borrowers }.compactMap { $0 }
   }
-  
+
   var uniqueBorrowers: Set<User.Compact> {
     .init(borrowers)
   }
+
+	var hasDuplicatedBorrowers: Bool {
+		uniqueBorrowers.count != borrowers.count
+	}
+
+	var hasNestedGroups: Bool {
+		transferUnits.contains { $0.nodeValue != nil }
+	}
 }
