@@ -1,6 +1,7 @@
 import Foundation
 import MultitoolTree
 
+@dynamicMemberLookup
 public struct TransferGroup: Identifiable, Hashable, Codable {
   public let id: UUID
   public let info: TransferUnit.Info
@@ -49,5 +50,11 @@ public extension TransferGroup {
 		transferUnits.isSingleCurrency &&
 		!transferUnits.hasDuplicatedBorrowers &&
 		!transferUnits.hasNestedGroups
+	}
+}
+
+extension TransferGroup {
+	subscript <T> (dynamicMember keyPath: KeyPath<[TransferUnit], T>) -> T {
+		transferUnits[keyPath: keyPath]
 	}
 }
