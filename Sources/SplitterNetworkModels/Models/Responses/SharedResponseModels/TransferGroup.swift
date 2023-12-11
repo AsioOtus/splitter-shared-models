@@ -1,5 +1,11 @@
+import SplitterSharedModels
+
 extension SharedResponseModels {
 	public struct TransferGroup: ResponseNetworkModel, Equatable {
-		public init () { }
+		public let transferGroup: SplitterSharedModels.TransferGroup
+
+		public init (transferGroup: SplitterSharedModels.TransferGroup) {
+			self.transferGroup = transferGroup
+		}
 	}
 }
