@@ -58,7 +58,7 @@ public extension TransferGroup {
 		var dictionary = [Currency: Double]()
 		amounts
 			.compactMap { $0 }
-			.forEach { dictionary[$0.currency, default: 0] += $0.value }
+			.forEach { dictionary[$0.currency, default: 0] += $0.valueOrZero }
 
 		let amountsSum = dictionary.map { currency, value in Amount(value: value, currency: currency) }
 		return amountsSum

@@ -4,14 +4,14 @@ import MultitoolTree
 public struct Transfer: Identifiable, Hashable, Codable {
   public let id: UUID
   public let info: TransferUnit.Info
-  public let amount: Amount?
+  public let amount: Amount
 	public let creditor: User.Compact?
   public let borrower: User.Compact?
   
   public init (
     id: UUID = .init(),
     info: TransferUnit.Info,
-    amount: Amount?,
+    amount: Amount,
     creditor: User.Compact?,
     borrower: User.Compact?
   ) {
@@ -27,8 +27,8 @@ public extension Transfer {
   var new: New {
     .init(
       info: info,
-      amountValue: amount?.value,
-      currencyId: amount?.currency.id,
+      amountValue: amount.value,
+      currencyId: amount.currency.id,
       creditorId: creditor?.id,
       borrowerId: borrower?.id
     )
@@ -38,8 +38,8 @@ public extension Transfer {
     .init(
       id: id,
       info: info,
-      amountValue: amount?.value,
-      currencyId: amount?.currency.id,
+      amountValue: amount.value,
+      currencyId: amount.currency.id,
       creditorId: creditor?.id,
       borrowerId: borrower?.id
     )
