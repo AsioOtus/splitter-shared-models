@@ -2,12 +2,12 @@ import Foundation
 import SplitterSharedModels
 
 public struct UpdateTransferGroupInfoRequestModel: RequestNetworkModel {
+	public let transferGroupId: UUID
   public let transferGroupInfo: TransferUnit.Info
-  public let transferGroupId: UUID
 
   public init (
-    transferGroupInfo: TransferUnit.Info,
-    transferGroupId: UUID
+		transferGroupId: UUID,
+    transferGroupInfo: TransferUnit.Info
   ) {
     self.transferGroupInfo = transferGroupInfo
     self.transferGroupId = transferGroupId
