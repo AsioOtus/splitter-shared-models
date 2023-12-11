@@ -4,14 +4,14 @@ public extension Transfer {
   struct New: Hashable, Codable {
     public let info: TransferUnit.Info
     public let amountValue: Double?
-    public let currencyId: UUID?
+    public let currencyId: UUID
     public let creditorId: UUID?
     public let borrowerId: UUID?
 
     public init (
       info: TransferUnit.Info,
       amountValue: Double?,
-      currencyId: UUID?,
+      currencyId: UUID,
       creditorId: UUID?,
       borrowerId: UUID?
     ) {

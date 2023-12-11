@@ -5,7 +5,7 @@ public extension Transfer {
     public let id: UUID
     public let info: TransferUnit.Info
     public let amountValue: Double?
-    public let currencyId: UUID?
+    public let currencyId: UUID
     public let creditorId: UUID?
     public let borrowerId: UUID?
 
@@ -13,7 +13,7 @@ public extension Transfer {
       id: UUID,
       info: TransferUnit.Info,
       amountValue: Double?,
-      currencyId: UUID?,
+      currencyId: UUID,
       creditorId: UUID?,
       borrowerId: UUID?
     ) {
