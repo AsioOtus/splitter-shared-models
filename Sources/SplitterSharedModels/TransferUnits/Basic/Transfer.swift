@@ -9,7 +9,7 @@ public struct Transfer: Identifiable, Hashable, Codable {
   public let borrower: User.Compact?
   
   public init (
-    id: UUID = .init(),
+    id: UUID,
     info: TransferUnit.Info,
     amount: Amount,
     creditor: User.Compact?,
