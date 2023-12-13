@@ -1,7 +1,7 @@
 import Foundation
 import SharedModels
 
-public struct CreateSplitTransferGroupRequestModel: RequestNetworkModel {
+public struct CreateTransferSplitGroupRequestModel: RequestNetworkModel {
 	public let transferGroupInfo: TransferUnit.Info
 	public let currencyId: UUID
 	public let creditorId: UUID?
