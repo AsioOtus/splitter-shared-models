@@ -1,17 +1,17 @@
 import Foundation
-import SplitterSharedModels
+import SharedModels
 
-public struct CreateTransferGroupRequestModel: RequestNetworkModel {
-  public let transferGroup: TransferGroup.New
+public struct CreateTransferRequestModel: RequestNetworkModel {
+  public let transfer: Transfer.New
   public let superTransferGroupId: UUID?
   public let userGroupId: UUID
 
   public init (
-    transferGroup: TransferGroup.New,
+    transfer: Transfer.New,
     superTransferGroupId: UUID?,
     userGroupId: UUID
   ) {
-    self.transferGroup = transferGroup
+    self.transfer = transfer
     self.superTransferGroupId = superTransferGroupId
     self.userGroupId = userGroupId
   }

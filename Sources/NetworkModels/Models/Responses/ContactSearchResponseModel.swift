@@ -1,4 +1,4 @@
-import SplitterSharedModels
+import SharedModels
 
 public struct ContactSearchResponseModel: ResponseNetworkModel {
   public let searchResult: User.ContactSearch?

@@ -10,10 +10,10 @@ let package = Package(
   ],
   products: [
     .library(
-      name: "SplitterSharedModels",
+      name: "SharedModels",
       targets: [
-        "SplitterSharedModels",
-        "SplitterNetworkModels"
+        "SharedModels",
+        "NetworkModels"
       ]
     ),
   ],
@@ -23,18 +23,18 @@ let package = Package(
   ],
   targets: [
     .target(
-      name: "SplitterSharedModels",
+      name: "SharedModels",
       dependencies: [
         "Multitool",
         "MultitoolComplex",
       ]
     ),
     .target(
-      name: "SplitterNetworkModels",
+      name: "NetworkModels",
       dependencies: [
         "Multitool",
         "MultitoolComplex",
-        "SplitterSharedModels",
+        "SharedModels",
       ]
     )
   ]

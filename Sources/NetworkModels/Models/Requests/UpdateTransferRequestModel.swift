@@ -1,4 +1,4 @@
-import SplitterSharedModels
+import SharedModels
 
 public struct UpdateTransferRequestModel: RequestNetworkModel {
   public let transfer: Transfer.Update

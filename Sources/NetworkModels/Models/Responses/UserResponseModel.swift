@@ -1,4 +1,4 @@
-import SplitterSharedModels
+import SharedModels
 
 public struct UserResponseModel: ResponseNetworkModel {
   public let user: User

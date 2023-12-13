@@ -1,5 +1,5 @@
 import Foundation
-import SplitterSharedModels
+import SharedModels
 
 public struct UserGroupUsersResponseModel: ResponseNetworkModel {
   public let users: [User.Compact]

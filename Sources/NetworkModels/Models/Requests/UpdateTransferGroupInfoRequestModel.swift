@@ -1,5 +1,5 @@
 import Foundation
-import SplitterSharedModels
+import SharedModels
 
 public struct UpdateTransferGroupInfoRequestModel: RequestNetworkModel {
 	public let transferGroupId: UUID

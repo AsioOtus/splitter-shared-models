@@ -1,4 +1,4 @@
-import SplitterSharedModels
+import SharedModels
 
 public struct CreateTransferGroupResponseModel: ResponseNetworkModel {
   public let transferGroup: TransferGroup
