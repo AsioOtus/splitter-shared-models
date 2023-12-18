@@ -10,7 +10,7 @@ public struct TransferGroup: Identifiable, Hashable, Codable {
   public init (
     id: UUID,
     info: TransferUnit.Info,
-		isSplit: Bool,
+		isSplit: Bool = false,
     transferUnits: [TransferUnit]
   ) {
     self.id = id

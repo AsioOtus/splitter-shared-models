@@ -7,9 +7,9 @@ extension TransferUnit {
     public let date: Date?
 
     public init (
-      name: String?,
-      note: String?,
-      date: Date?
+      name: String? = nil,
+      note: String? = nil,
+      date: Date? = nil
     ) {
       self.name = name
       self.note = note
