@@ -4,15 +4,18 @@ import MultitoolTree
 public struct TransferGroup: Identifiable, Hashable, Codable {
   public let id: UUID
   public let info: TransferUnit.Info
+	public let isSplit: Bool
   public private(set) var transferUnits: [TransferUnit]
   
   public init (
     id: UUID,
     info: TransferUnit.Info,
+		isSplit: Bool,
     transferUnits: [TransferUnit]
   ) {
     self.id = id
     self.info = info
+		self.isSplit = isSplit
     self.transferUnits = transferUnits
   }
 }
@@ -30,6 +33,7 @@ public extension TransferGroup {
   var new: New {
     .init(
       info: info,
+			isSplit: isSplit,
       transferUnits: transferUnits.map(\.new)
     )
   }
@@ -38,15 +42,10 @@ public extension TransferGroup {
     .init(
       id: id,
       info: info,
+			isSplit: isSplit,
       transferUnits: transferUnits.map(\.update)
     )
   }
-}
-
-public extension TransferGroup {
-	var isSplit: Bool {
-		isSingleCreditor && isSingleCurrency && !hasDuplicatedBorrowers && !hasNestedGroups
-	}
 }
 
 public extension TransferGroup {

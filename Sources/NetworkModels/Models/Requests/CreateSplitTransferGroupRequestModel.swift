@@ -2,20 +2,17 @@ import Foundation
 import SharedModels
 
 public struct CreateTransferSplitGroupRequestModel: RequestNetworkModel {
-	public let transferGroupInfo: TransferUnit.Info
-	public let currencyId: UUID
-	public let creditorId: UUID?
-	public let usersAmounts: [UUID: Double]
+	public let transferSplitGroup: TransferGroup.NewSplit
+	public let superTransferGroupId: UUID?
+	public let userGroupId: UUID
 
 	public init (
-		transferGroupInfo: TransferUnit.Info,
-		currencyId: UUID,
-		creditorId: UUID?,
-		usersAmounts: [UUID: Double]
+		transferSplitGroup: TransferGroup.NewSplit,
+		superTransferGroupId: UUID?,
+		userGroupId: UUID
 	) {
-		self.transferGroupInfo = transferGroupInfo
-		self.currencyId = currencyId
-		self.creditorId = creditorId
-		self.usersAmounts = usersAmounts
+		self.transferSplitGroup = transferSplitGroup
+		self.superTransferGroupId = superTransferGroupId
+		self.userGroupId = userGroupId
 	}
 }
