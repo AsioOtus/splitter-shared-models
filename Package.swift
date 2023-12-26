@@ -26,14 +26,14 @@ let package = Package(
       name: "SharedModels",
       dependencies: [
 				.product(name: "Multitool", package: "multitool"),
-				.product(name: "MultitoolKit", package: "multitool-kit"),
+				.product(name: "MultitoolKitTree", package: "multitool-kit"),
       ]
     ),
     .target(
       name: "NetworkModels",
       dependencies: [
 				.product(name: "Multitool", package: "multitool"),
-				.product(name: "MultitoolKit", package: "multitool-kit"),
+				.product(name: "MultitoolKitTree", package: "multitool-kit"),
         "SharedModels",
       ]
     )
