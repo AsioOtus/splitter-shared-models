@@ -18,22 +18,22 @@ let package = Package(
     ),
   ],
   dependencies: [
-    .package(url: "https://github.com/AsioOtus/Multitool", branch: "main"),
-    .package(url: "https://github.com/AsioOtus/MultitoolComplex", branch: "main")
+    .package(url: "https://github.com/AsioOtus/multitool", branch: "main"),
+    .package(url: "https://github.com/AsioOtus/multitool-kit", branch: "main")
   ],
   targets: [
     .target(
       name: "SharedModels",
       dependencies: [
-        "Multitool",
-        "MultitoolComplex",
+				.product(name: "Multitool", package: "multitool"),
+				.product(name: "MultitoolKit", package: "multitool-kit"),
       ]
     ),
     .target(
       name: "NetworkModels",
       dependencies: [
-        "Multitool",
-        "MultitoolComplex",
+				.product(name: "Multitool", package: "multitool"),
+				.product(name: "MultitoolKit", package: "multitool-kit"),
         "SharedModels",
       ]
     )

@@ -10,12 +10,12 @@
       }
     },
     {
-      "identity" : "multitoolcomplex",
+      "identity" : "multitool-kit",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/AsioOtus/MultitoolComplex",
+      "location" : "https://github.com/AsioOtus/multitool-kit",
       "state" : {
         "branch" : "main",
-        "revision" : "efd4ae52f902e025bea46bd6c0c7ba9edd7c4fe9"
+        "revision" : "a6c73cec73d8c3aa7c4b0331b6cba856b5fb8038"
       }
     }
   ],
