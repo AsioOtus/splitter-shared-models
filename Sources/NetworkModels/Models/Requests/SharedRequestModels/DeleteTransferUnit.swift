@@ -1,7 +1,7 @@
 import Foundation
 
 extension SharedRequestModels {
-	public struct DeleteTransferUnitRequestModel: RequestNetworkModel {
+	public struct DeleteTransferUnit: RequestNetworkModel {
 		public let transferUnitId: UUID
 
 		public init (transferUnitId: UUID) {
