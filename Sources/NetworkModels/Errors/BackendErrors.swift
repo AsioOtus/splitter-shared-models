@@ -1,6 +1,6 @@
 import Multitool
 
-extension BackendError {
+public extension BackendError {
 	static let invalidAuthenticationCredentials = Self(
 		"invalidAuthenticationCredentials",
 		path: .authentication
@@ -47,7 +47,7 @@ extension BackendError {
 	)
 }
 
-extension BackendError {
+public extension BackendError {
 	static func general (description: String) -> Self {
 		.init(
 			"general",
