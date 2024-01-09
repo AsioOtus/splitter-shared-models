@@ -55,9 +55,9 @@ public extension BackendError {
 		)
 	}
 
-	static func internal (description: String? = nil, details: [DetailsKey: String] = [:]) -> Self {
+	static func inner (description: String? = nil, details: [DetailsKey: String] = [:]) -> Self {
 		.init(
-			"internal",
+			"inner",
 			description: description,
 			details: details
 		)
