@@ -5,18 +5,18 @@ public extension TransferGroup {
   struct Update: Identifiable, Hashable, Codable {
     public let id: UUID
     public let info: TransferUnit.Info
-		public let isSplit: Bool
+		public let type: TransferGroupType
     public private(set) var transferUnits: [TransferUnit.Update]?
 
     public init (
       id: UUID,
       info: TransferUnit.Info,
-			isSplit: Bool,
+			type: TransferGroupType,
       transferUnits: [TransferUnit.Update]?
     ) {
       self.id = id
       self.info = info
-			self.isSplit = isSplit
+			self.type = type
       self.transferUnits = transferUnits
     }
   }
