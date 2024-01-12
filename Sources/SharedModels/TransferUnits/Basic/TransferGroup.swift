@@ -4,18 +4,18 @@ import MultitoolTree
 public struct TransferGroup: Identifiable, Hashable, Codable {
   public let id: UUID
   public let info: TransferUnit.Info
-	public let type: TransferGroupType
+	public let mode: TransferGroup.Mode
   public private(set) var transferUnits: [TransferUnit]
   
   public init (
     id: UUID,
     info: TransferUnit.Info,
-		type: TransferGroupType = .general,
+		mode: TransferGroup.Mode = .general,
     transferUnits: [TransferUnit]
   ) {
     self.id = id
     self.info = info
-		self.type = type
+		self.mode = mode
     self.transferUnits = transferUnits
   }
 }
@@ -33,7 +33,7 @@ public extension TransferGroup {
   var new: New {
     .init(
       info: info,
-			type: type,
+			mode: mode,
       transferUnits: transferUnits.map(\.new)
     )
   }
@@ -42,7 +42,7 @@ public extension TransferGroup {
     .init(
       id: id,
       info: info,
-			type: type,
+			mode: mode,
       transferUnits: transferUnits.map(\.update)
     )
   }
@@ -104,6 +104,6 @@ public extension TransferGroup {
 	}
 
 	var isSplit: Bool {
-		type == .split
+		mode == .split
 	}
 }

@@ -3,16 +3,16 @@ import MultitoolTree
 public extension TransferGroup {
   struct New: Hashable, Codable {
     public let info: TransferUnit.Info
-		public let type: TransferGroupType
+		public let mode: TransferGroup.Mode
     public private(set) var transferUnits: [TransferUnit.New]?
 
     public init (
       info: TransferUnit.Info,
-			type: TransferGroupType,
+			mode: TransferGroup.Mode,
       transferUnits: [TransferUnit.New]
     ) {
       self.info = info
-			self.type = type
+			self.mode = mode
       self.transferUnits = transferUnits
     }
   }
