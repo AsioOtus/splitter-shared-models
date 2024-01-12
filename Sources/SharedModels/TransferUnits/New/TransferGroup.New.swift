@@ -26,3 +26,9 @@ extension TransferGroup.New: TreeNode {
     set { transferUnits = newValue }
   }
 }
+
+public extension TransferGroup.New {
+	var isSplit: Bool {
+		mode == .split
+	}
+}

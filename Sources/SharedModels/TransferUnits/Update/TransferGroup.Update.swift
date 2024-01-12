@@ -30,3 +30,9 @@ extension TransferGroup.Update: TreeNode {
     set { transferUnits = newValue }
   }
 }
+
+public extension TransferGroup.Update {
+	var isSplit: Bool {
+		mode == .split
+	}
+}
