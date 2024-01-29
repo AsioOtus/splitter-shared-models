@@ -1,49 +1,49 @@
 import Multitool
 
 public extension BackendError {
-	static let invalidAuthenticationCredentials = Self(
-		"invalidAuthenticationCredentials",
-		path: .authentication
-	)
-
-	static let invalidToken = Self(
+	static let invalidAccessToken = Self(
 		"invalidToken",
 		path: .authentication
 	)
 
-	static let expiredToken = Self(
+	static let expiredAccessToken = Self(
 		"expiredToken",
-		path: .authentication
-	)
-
-	static let unauthorized = Self(
-		"unauthorized",
-		path: .authentication
-	)
-
-	static let forbidden = Self(
-		"forbidden",
-		path: .authentication
-	)
-
-	static let invalidPassword = Self(
-		"invalidPassword",
-		path: .authentication
-	)
-
-	static let incorrectUsernameOrPassword = Self(
-		"incorrectUsernameOrPassword",
-		path: .authentication
-	)
-
-	static let usernameAlreadyExists = Self(
-		"usernameAlreadyExists",
 		path: .authentication
 	)
 
 	static let reauthenticationFailed = Self(
 		"reauthenticationFailed",
 		path: .authentication
+	)
+
+	static let invalidAuthenticationCredentials = Self(
+		"invalidAuthenticationCredentials",
+		path: .authentication
+	)
+
+	static let unauthorized = Self(
+		"unauthorized",
+		path: .access
+	)
+
+	static let forbidden = Self(
+		"forbidden",
+		path: .access
+	)
+
+	static let incorrectUsernameOrPassword = Self(
+		"incorrectUsernameOrPassword",
+		path: .login
+	)
+
+	static let usernameAlreadyExists = Self(
+		"usernameAlreadyExists",
+		path: .registration
+	)
+
+	static let invalidPassword = Self(
+		"invalidPassword",
+		path: .registration
 	)
 }
 
