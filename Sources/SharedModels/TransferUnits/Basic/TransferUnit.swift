@@ -4,6 +4,16 @@ import Multitool
 public typealias TransferUnit = GeneralTree<TransferUnitValue.Default>
 
 public extension TransferUnit {
+	init (transfer: Transfer) {
+		self.init(value: .transfer(transfer))
+	}
+
+	init (transferGroup: TransferGroup, transferUnits: [TransferUnit]) {
+		self.init(value: .transferGroup(transferGroup), nodes: transferUnits)
+	}
+}
+
+public extension TransferUnit {
   var info: Info {
 		switch self.value {
     case .transfer(let transfer): transfer.info
