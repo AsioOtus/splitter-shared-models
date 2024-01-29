@@ -1,14 +1,14 @@
-import MultitoolTree
+import Multitool
 
 public extension TransferUnit {
-  typealias New = Tree<Transfer.New, TransferGroup.New>
+	typealias New = GeneralTree<TransferUnitValue.New>
 }
 
 public extension TransferUnit.New {
   var info: TransferUnit.Info {
-    switch self {
-    case .leaf(let transfer): return transfer.info
-    case .node(let transferGroup): return transferGroup.info
+		switch self.value {
+    case .transfer(let transfer): return transfer.info
+    case .transferGroup(let transferGroup): return transferGroup.info
     }
   }
 }

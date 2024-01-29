@@ -3,19 +3,10 @@
     {
       "identity" : "multitool",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/AsioOtus/Multitool",
+      "location" : "https://github.com/AsioOtus/multitool",
       "state" : {
         "branch" : "main",
-        "revision" : "bd87185c20ece65b46093ef35d50a8f8e6df799a"
-      }
-    },
-    {
-      "identity" : "multitool-kit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/AsioOtus/multitool-kit",
-      "state" : {
-        "branch" : "main",
-        "revision" : "0d977b7fc6617a1e32fe91034067d3a221d13b58"
+        "revision" : "462c63bd17869618a4095a36a2b4e4df762eca9a"
       }
     }
   ],

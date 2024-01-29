@@ -1,57 +1,67 @@
 import Foundation
-import MultitoolTree
+import Multitool
 
-public typealias TransferUnit = Tree<Transfer, TransferGroup>
+public typealias TransferUnit = GeneralTree<TransferUnitValue.Default>
 
 public extension TransferUnit {
   var info: Info {
-    switch self {
-    case .leaf(let transfer): return transfer.info
-    case .node(let transferGroup): return transferGroup.info
+		switch self.value {
+    case .transfer(let transfer): transfer.info
+    case .transferGroup(let transferGroup): transferGroup.info
     }
   }
 
   var amounts: [Amount?] {
-    switch self {
-    case .leaf(let transfer): return [transfer.amount]
-		case .node(let transferUnitGroup): return transferUnitGroup.amounts
+    switch self.value {
+    case .transfer(let transfer): [transfer.amount]
+		case .transferGroup: nodes.amounts
     }
   }
 
   var summarizedAmounts: [Amount] {
-    switch self {
-    case .leaf(let transfer): return [transfer.amount].compactMap { $0 }
-		case .node(let transferUnitGroup): return transferUnitGroup.amountsSum
+    switch self.value {
+    case .transfer(let transfer): [transfer.amount].compactMap { $0 }
+		case .transferGroup: nodes.amountsSum
     }
   }
 
   var creditors: [User.Compact?] {
-    switch self {
-    case .leaf(let transfer): return [transfer.creditor]
-		case .node(let transferUnitGroup): return transferUnitGroup.creditors
+    switch self.value {
+    case .transfer(let transfer): [transfer.creditor]
+		case .transferGroup: nodes.creditors
     }
   }
 
   var borrowers: [User.Compact?] {
-    switch self {
-    case .leaf(let transfer): return [transfer.borrower]
-		case .node(let transferUnitGroup): return transferUnitGroup.borrowers
+    switch self.value {
+    case .transfer(let transfer): [transfer.borrower]
+		case .transferGroup: nodes.borrowers
     }
   }
 }
 
 public extension TransferUnit {
   var new: New {
-    switch self {
-    case .leaf(let transfer): return New.leaf(transfer.new)
-    case .node(let transferGroup): return New.node(transferGroup.new)
-    }
+		.init(
+			value: {
+				switch self.value {
+				case .transfer(let transfer): .transfer(transfer.new)
+				case .transferGroup(let transferGroup): .transferGroup(transferGroup.new)
+				}
+			}(),
+			nodes: nodes.map(\.new)
+		)
   }
 
   var update: Update {
-    switch self {
-    case .leaf(let transfer): return Update.leaf(transfer.update)
-    case .node(let transferGroup): return Update.node(transferGroup.update)
-    }
+		.init(
+			value: {
+				switch self.value {
+				case .transfer(let transfer): .transfer(transfer.update)
+				case .transferGroup(let transferGroup): .transferGroup(transferGroup.update)
+				}
+			}(),
+			nodes: nodes.map(\.update)
+		)
   }
 }

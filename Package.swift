@@ -19,21 +19,18 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/AsioOtus/multitool", branch: "main"),
-    .package(url: "https://github.com/AsioOtus/multitool-kit", branch: "main")
   ],
   targets: [
     .target(
       name: "SharedModels",
       dependencies: [
 				.product(name: "Multitool", package: "multitool"),
-				.product(name: "MultitoolKitTree", package: "multitool-kit"),
       ]
     ),
     .target(
       name: "NetworkModels",
       dependencies: [
 				.product(name: "Multitool", package: "multitool"),
-				.product(name: "MultitoolKitTree", package: "multitool-kit"),
         "SharedModels",
       ]
     )

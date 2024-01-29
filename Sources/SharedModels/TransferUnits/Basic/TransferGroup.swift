@@ -1,40 +1,31 @@
 import Foundation
-import MultitoolTree
+import Multitool
 
 public struct TransferGroup: Identifiable, Hashable, Codable {
   public let id: UUID
   public let info: TransferUnit.Info
 	public let mode: TransferGroup.Mode
-  public private(set) var transferUnits: [TransferUnit]
   
   public init (
     id: UUID,
     info: TransferUnit.Info,
-		mode: TransferGroup.Mode = .general,
-    transferUnits: [TransferUnit]
+		mode: TransferGroup.Mode = .general
   ) {
     self.id = id
     self.info = info
 		self.mode = mode
-    self.transferUnits = transferUnits
   }
-}
 
-extension TransferGroup: TreeNode {
-  public typealias Leaf = Transfer
-
-  public var trees: [InnerTree] {
-    get { transferUnits }
-    set { transferUnits = newValue }
-  }
+	var isSplit: Bool {
+		mode == .split
+	}
 }
 
 public extension TransferGroup {
   var new: New {
     .init(
       info: info,
-			mode: mode,
-      transferUnits: transferUnits.map(\.new)
+			mode: mode
     )
   }
 
@@ -42,15 +33,14 @@ public extension TransferGroup {
     .init(
       id: id,
       info: info,
-			mode: mode,
-      transferUnits: transferUnits.map(\.update)
+			mode: mode
     )
   }
 }
 
-public extension TransferGroup {
+public extension Array where Element == TransferUnit {
 	var amounts: [Amount] {
-		transferUnits.flatMap { $0.amounts }.compactMap { $0 }
+		flatMap { $0.amounts }.compactMap { $0 }
 	}
 
 	var amountsSum: [Amount] {
@@ -72,7 +62,7 @@ public extension TransferGroup {
 	}
 
 	var creditors: [User.Compact] {
-		transferUnits.flatMap { $0.creditors }.compactMap { $0 }
+		flatMap { $0.creditors }.compactMap { $0 }
 	}
 
 	var uniqueCreditors: Set<User.Compact> {
@@ -88,7 +78,7 @@ public extension TransferGroup {
 	}
 
 	var borrowers: [User.Compact] {
-		transferUnits.flatMap { $0.borrowers }.compactMap { $0 }
+		flatMap { $0.borrowers }.compactMap { $0 }
 	}
 
 	var uniqueBorrowers: Set<User.Compact> {
@@ -97,13 +87,5 @@ public extension TransferGroup {
 
 	var hasDuplicatedBorrowers: Bool {
 		uniqueBorrowers.count != borrowers.count
-	}
-
-	var hasNestedGroups: Bool {
-		transferUnits.contains { $0.nodeValue != nil }
-	}
-
-	var isSplit: Bool {
-		mode == .split
 	}
 }
