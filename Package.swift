@@ -18,7 +18,7 @@ let package = Package(
     ),
   ],
   dependencies: [
-    .package(url: "https://github.com/AsioOtus/multitool", branch: "main"),
+		.package(url: "https://github.com/AsioOtus/multitool", from: "1.0.0"),
   ],
   targets: [
     .target(
