@@ -14,17 +14,19 @@ public extension TransferUnit {
 }
 
 public extension TransferUnit {
-  var info: Info {
+	var info: TransferUnit.Info {
 		switch self.value {
-    case .transfer(let transfer): transfer.info
-    case .transferGroup(let transferGroup): transferGroup.info
-    }
-  }
+		case .transfer(let transfer): transfer.info
+		case .transferGroup(let transferGroup): transferGroup.info
+		case .transferSplitGroup(let transferSplitGroup): transferSplitGroup.info
+		}
+	}
 
   var amounts: [Amount?] {
     switch self.value {
     case .transfer(let transfer): [transfer.amount]
 		case .transferGroup: nodes.amounts
+		case .transferSplitGroup(let transferSplitGroup): transferSplitGroup.borrowerAmounts.values.map { .init(value: $0, currency: transferSplitGroup.currency) }
     }
   }
 
@@ -32,6 +34,7 @@ public extension TransferUnit {
     switch self.value {
     case .transfer(let transfer): [transfer.amount].compactMap { $0 }
 		case .transferGroup: nodes.amountsSum
+		case .transferSplitGroup(let transferSplitGroup): [transferSplitGroup.amountSum]
     }
   }
 
@@ -39,6 +42,7 @@ public extension TransferUnit {
     switch self.value {
     case .transfer(let transfer): [transfer.creditor]
 		case .transferGroup: nodes.creditors
+		case .transferSplitGroup(let transferSplitGroup): [transferSplitGroup.creditor]
     }
   }
 
@@ -46,6 +50,7 @@ public extension TransferUnit {
     switch self.value {
     case .transfer(let transfer): [transfer.borrower]
 		case .transferGroup: nodes.borrowers
+		case .transferSplitGroup(let transferSplitGroup): Array(transferSplitGroup.borrowerAmounts.keys)
     }
   }
 }
@@ -57,6 +62,7 @@ public extension TransferUnit {
 				switch self.value {
 				case .transfer(let transfer): .transfer(transfer.new)
 				case .transferGroup(let transferGroup): .transferGroup(transferGroup.new)
+				case .transferSplitGroup(let transferSplitGroup): .transferSplitGroup(transferSplitGroup.new)
 				}
 			}(),
 			nodes: nodes.map(\.new)
@@ -69,6 +75,7 @@ public extension TransferUnit {
 				switch self.value {
 				case .transfer(let transfer): .transfer(transfer.update)
 				case .transferGroup(let transferGroup): .transferGroup(transferGroup.update)
+				case .transferSplitGroup(let transferSplitGroup): .transferSplitGroup(transferSplitGroup.update)
 				}
 			}(),
 			nodes: nodes.map(\.update)

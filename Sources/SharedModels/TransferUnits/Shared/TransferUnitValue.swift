@@ -1,6 +1,7 @@
-public enum TransferUnitValue<T, TG> {
+public enum TransferUnitValue<T, TG, TSG> {
 	case transfer(T)
 	case transferGroup(TG)
+	case transferSplitGroup(TSG)
 
 	public var isTransfer: Bool {
 		if case .transfer = self { true }
@@ -9,6 +10,11 @@ public enum TransferUnitValue<T, TG> {
 
 	public var isTransferGroup: Bool {
 		if case .transferGroup = self { true }
+		else { false }
+	}
+
+	public var isSplit: Bool {
+		if case .transferSplitGroup = self { true }
 		else { false }
 	}
 
@@ -21,6 +27,11 @@ public enum TransferUnitValue<T, TG> {
 		if case .transferGroup(let value) = self { return value }
 		else { return nil }
 	}
+
+	public var transferSplitGroupValue: TSG? {
+		if case .transferSplitGroup(let value) = self { return value }
+		else { return nil }
+	}
 }
 
-extension TransferUnitValue: Codable where T: Codable, TG: Codable { }
+extension TransferUnitValue: Codable where T: Codable, TG: Codable, TSG: Codable { }

@@ -1,3 +1,3 @@
 public extension TransferUnitValue {
-	typealias Default = TransferUnitValue<Transfer, TransferGroup>
+	typealias Default = TransferUnitValue<Transfer, TransferGroup, TransferSplitGroup>
 }

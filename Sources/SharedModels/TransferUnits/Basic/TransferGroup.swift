@@ -24,8 +24,7 @@ public struct TransferGroup: Identifiable, Hashable, Codable {
 public extension TransferGroup {
   var new: New {
     .init(
-      info: info,
-			mode: mode
+      info: info
     )
   }
 

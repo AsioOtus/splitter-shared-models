@@ -7,8 +7,9 @@ public extension TransferUnit {
 public extension TransferUnit.Update {
   var info: TransferUnit.Info {
 		switch self.value {
-    case .transfer(let transfer): return transfer.info
-    case .transferGroup(let transferGroup): return transferGroup.info
+    case .transfer(let transfer): transfer.info
+    case .transferGroup(let transferGroup): transferGroup.info
+		case .transferSplitGroup(let transferSplitGroup): transferSplitGroup.info
     }
   }
 }

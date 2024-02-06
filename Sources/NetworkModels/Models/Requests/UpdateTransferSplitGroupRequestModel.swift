@@ -2,10 +2,10 @@ import Foundation
 import SharedModels
 
 public struct UpdateTransferSplitGroupRequestModel: RequestNetworkModel {
-	public let transferSplitGroup: TransferGroup.UpdateSplit
+	public let transferSplitGroup: TransferSplitGroup.Update
 
 	public init (
-		transferSplitGroup: TransferGroup.UpdateSplit
+		transferSplitGroup: TransferSplitGroup.Update
 	) {
 		self.transferSplitGroup = transferSplitGroup
 	}
