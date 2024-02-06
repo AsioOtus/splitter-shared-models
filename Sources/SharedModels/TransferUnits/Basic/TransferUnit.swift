@@ -11,6 +11,10 @@ public extension TransferUnit {
 	init (transferGroup: TransferGroup, transferUnits: [TransferUnit]) {
 		self.init(value: .transferGroup(transferGroup), nodes: transferUnits)
 	}
+
+	init (transferSplitGroup: TransferSplitGroup) {
+		self.init(value: .transferSplitGroup(transferSplitGroup))
+	}
 }
 
 public extension TransferUnit {
