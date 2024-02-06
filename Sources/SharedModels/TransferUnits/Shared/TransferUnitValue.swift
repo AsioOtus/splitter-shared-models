@@ -35,3 +35,5 @@ public enum TransferUnitValue<T, TG, TSG> {
 }
 
 extension TransferUnitValue: Codable where T: Codable, TG: Codable, TSG: Codable { }
+extension TransferUnitValue: Equatable where T: Equatable, TG: Equatable, TSG: Equatable { }
+extension TransferUnitValue: Hashable where T: Hashable, TG: Hashable, TSG: Hashable { }
