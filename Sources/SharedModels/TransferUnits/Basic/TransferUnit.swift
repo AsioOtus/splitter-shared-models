@@ -18,6 +18,14 @@ public extension TransferUnit {
 }
 
 public extension TransferUnit {
+	var id: UUID {
+		switch self.value {
+		case .transfer(let transfer): transfer.id
+		case .transferGroup(let transferGroup): transferGroup.id
+		case .transferSplitGroup(let transferSplitGroup): transferSplitGroup.id
+		}
+	}
+
 	var info: TransferUnit.Info {
 		switch self.value {
 		case .transfer(let transfer): transfer.info
