@@ -4,21 +4,14 @@ import Multitool
 public struct TransferGroup: Identifiable, Hashable, Codable {
   public let id: UUID
   public let info: TransferUnit.Info
-	public let mode: TransferGroup.Mode
   
   public init (
     id: UUID,
-    info: TransferUnit.Info,
-		mode: TransferGroup.Mode = .general
+    info: TransferUnit.Info
   ) {
     self.id = id
     self.info = info
-		self.mode = mode
   }
-
-	var isSplit: Bool {
-		mode == .split
-	}
 }
 
 public extension TransferGroup {
@@ -31,8 +24,7 @@ public extension TransferGroup {
   var update: Update {
     .init(
       id: id,
-      info: info,
-			mode: mode
+      info: info
     )
   }
 }
