@@ -2,12 +2,12 @@ import Foundation
 import SharedModels
 
 public struct CreateTransferSplitGroupRequestModel: RequestNetworkModel {
-	public let transferSplitGroup: TransferGroup.New
+	public let transferSplitGroup: TransferSplitGroup.New
 	public let superTransferGroupId: UUID?
 	public let userGroupId: UUID
 
 	public init (
-		transferSplitGroup: TransferGroup.New,
+		transferSplitGroup: TransferSplitGroup.New,
 		superTransferGroupId: UUID?,
 		userGroupId: UUID
 	) {
