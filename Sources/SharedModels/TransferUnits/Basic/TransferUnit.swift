@@ -44,6 +44,22 @@ public extension TransferUnit where Value: Identifiable {
 			return false
 		}
 	}
+
+	mutating func removeAll (withId id: UUID) {
+		nodes.removeAll {
+			$0.value.id == id
+		}
+
+		nodes.removeAll(withId: id)
+	}
+}
+
+public extension Array where Element == TransferUnit {
+	mutating func removeAll (withId id: UUID) {
+		for index in indices {
+			self[index].removeAll(withId: id)
+		}
+	}
 }
 
 public extension TransferUnit {
