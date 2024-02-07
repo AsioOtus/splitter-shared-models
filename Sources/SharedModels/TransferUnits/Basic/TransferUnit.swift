@@ -17,6 +17,35 @@ public extension TransferUnit {
 	}
 }
 
+public extension TransferUnit where Value: Identifiable {
+	@discardableResult
+	mutating func appendIfGroup (
+		transferUnit: TransferUnit,
+		toTransferGroup transferGroupId: UUID
+	) -> Bool {
+		switch value {
+		case .transfer:
+			return false
+
+		case .transferGroup(let transferGroup):
+			if transferGroup.id == transferGroupId {
+				nodes.append(transferUnit)
+				return true
+			} else {
+				for nodeIndex in nodes.indices {
+					let isSuccess = nodes[nodeIndex].appendIfGroup(transferUnit: transferUnit, toTransferGroup: transferGroupId)
+					guard !isSuccess else { return true }
+				}
+
+				return false
+			}
+
+		case .transferSplitGroup:
+			return false
+		}
+	}
+}
+
 public extension TransferUnit {
 	var id: UUID {
 		switch self.value {

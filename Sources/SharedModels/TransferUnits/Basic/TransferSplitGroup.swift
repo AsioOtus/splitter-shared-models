@@ -1,6 +1,6 @@
 import Foundation
 
-public struct TransferSplitGroup: Hashable, Codable {
+public struct TransferSplitGroup: Identifiable, Hashable, Codable {
 	public let id: UUID
 	public let info: TransferUnit.Info
 	public let currency: Currency

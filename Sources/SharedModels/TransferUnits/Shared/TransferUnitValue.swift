@@ -1,3 +1,5 @@
+import Foundation
+
 public enum TransferUnitValue<T, TG, TSG> {
 	case transfer(T)
 	case transferGroup(TG)
@@ -31,6 +33,16 @@ public enum TransferUnitValue<T, TG, TSG> {
 	public var transferSplitGroupValue: TSG? {
 		if case .transferSplitGroup(let value) = self { return value }
 		else { return nil }
+	}
+}
+
+extension TransferUnitValue: Identifiable where T: Identifiable<UUID>, TG: Identifiable<UUID>, TSG: Identifiable<UUID> {
+	public var id: UUID {
+		switch self {
+		case .transfer(let t): t.id
+		case .transferGroup(let tg):  tg.id
+		case .transferSplitGroup(let tsg): tsg.id
+		}
 	}
 }
 
