@@ -2,15 +2,12 @@ import SharedModels
 
 extension SharedResponseModels {
 	public struct TransferGroup: ResponseNetworkModel, Equatable {
-		public let transferGroup: SharedModels.TransferGroup
-		public let transferUnits: [SharedModels.TransferUnit]
+		public let transferGroupContainer: SharedModels.TransferGroup.Container
 
 		public init (
-			transferGroup: SharedModels.TransferGroup,
-			transferUnits: [SharedModels.TransferUnit]
+			transferGroupContainer: SharedModels.TransferGroup.Container
 		) {
-			self.transferGroup = transferGroup
-			self.transferUnits = transferUnits
+			self.transferGroupContainer = transferGroupContainer
 		}
 	}
 }

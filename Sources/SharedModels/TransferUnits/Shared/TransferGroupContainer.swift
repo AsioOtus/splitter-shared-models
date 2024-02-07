@@ -10,3 +10,7 @@ public struct TransferGroupContainer<TG, TU> {
 		self.transferUnits = transferUnits
 	}
 }
+
+extension TransferGroupContainer: Codable where TG: Codable, TU: Codable { }
+extension TransferGroupContainer: Equatable where TG: Equatable, TU: Equatable { }
+extension TransferGroupContainer: Hashable where TG: Hashable, TU: Hashable { }
