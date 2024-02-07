@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AsioOtus/multitool",
       "state" : {
-        "revision" : "06638fe46675f07761c610ed6319758ff51f5a39",
-        "version" : "1.0.2"
+        "revision" : "ad48fc59f096930819255e1123a1a3cb940e757b",
+        "version" : "1.0.3"
       }
     }
   ],
