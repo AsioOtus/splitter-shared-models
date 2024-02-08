@@ -75,7 +75,7 @@ public extension TransferUnit {
     switch self.value {
     case .transfer(let transfer): [transfer.amount]
 		case .transferGroup: nodes.amounts
-		case .transferSplitGroup(let transferSplitGroup): transferSplitGroup.borrowerAmounts.values.map { .init(value: $0, currency: transferSplitGroup.currency) }
+		case .transferSplitGroup(let transferSplitGroup): [transferSplitGroup.amount]
     }
   }
 
@@ -83,7 +83,7 @@ public extension TransferUnit {
     switch self.value {
     case .transfer(let transfer): [transfer.amount].compactMap { $0 }
 		case .transferGroup: nodes.amountsSum
-		case .transferSplitGroup(let transferSplitGroup): [transferSplitGroup.amountSum]
+		case .transferSplitGroup(let transferSplitGroup): [transferSplitGroup.amount]
     }
   }
 
