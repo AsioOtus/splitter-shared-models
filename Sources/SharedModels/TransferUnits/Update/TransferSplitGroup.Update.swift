@@ -4,7 +4,7 @@ extension TransferSplitGroup {
 	public struct Update: Hashable, Codable {
 		public let id: UUID
 		public let info: TransferUnit.Info
-		public let amountValue: Double?
+		public let amountValue: Int?
 		public let currencyId: UUID
 		public let creditorId: UUID?
 		public let borrowerAmounts: [UUID: Double?]
@@ -12,7 +12,7 @@ extension TransferSplitGroup {
 		public init (
 			id: UUID,
 			info: TransferUnit.Info,
-			amountValue: Double?,
+			amountValue: Int?,
 			currencyId: UUID,
 			creditorId: UUID?,
 			borrowerAmounts: [UUID: Double?]

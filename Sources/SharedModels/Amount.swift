@@ -1,13 +1,13 @@
 public struct Amount: Hashable, Codable {
-  public let value: Double?
+  public let value: Int?
   public let currency: Currency
   
-  public init (value: Double?, currency: Currency) {
+  public init (value: Int?, currency: Currency) {
     self.value = value
     self.currency = currency
   }
 
-	public var valueOrZero: Double {
+	public var valueOrZero: Int {
 		value ?? 0
 	}
 }
@@ -26,16 +26,12 @@ public extension Amount {
   }
 
   static func / (_ lhs: Self, _ rhs: Int) -> Self {
-    .init(value: lhs.valueOrZero / Double(rhs), currency: lhs.currency)
-  }
-
-  static func / (_ lhs: Self, _ rhs: Double) -> Self {
     .init(value: lhs.valueOrZero / rhs, currency: lhs.currency)
   }
 }
 
 public extension Amount {
-  func set (value: Double?) -> Self {
+  func set (value: Int?) -> Self {
     .init(value: value, currency: currency)
   }
 

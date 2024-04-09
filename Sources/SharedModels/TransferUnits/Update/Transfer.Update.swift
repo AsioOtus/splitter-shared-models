@@ -4,7 +4,7 @@ extension Transfer {
   public struct Update: Identifiable, Hashable, Codable {
     public let id: UUID
     public let info: TransferUnit.Info
-    public let amountValue: Double?
+    public let amountValue: Int?
     public let currencyId: UUID
     public let creditorId: UUID?
     public let borrowerId: UUID?
@@ -12,7 +12,7 @@ extension Transfer {
     public init (
       id: UUID,
       info: TransferUnit.Info,
-      amountValue: Double?,
+      amountValue: Int?,
       currencyId: UUID,
       creditorId: UUID?,
       borrowerId: UUID?

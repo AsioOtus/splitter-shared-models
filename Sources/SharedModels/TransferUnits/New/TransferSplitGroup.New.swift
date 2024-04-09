@@ -3,14 +3,14 @@ import Foundation
 extension TransferSplitGroup {
 	public struct New: Hashable, Codable {
 		public let info: TransferUnit.Info
-		public let amountValue: Double?
+		public let amountValue: Int?
 		public let currencyId: UUID
 		public let creditorId: UUID?
 		public let borrowerAmounts: [UUID: Double?]
 
 		public init (
 			info: TransferUnit.Info,
-			amountValue: Double?,
+			amountValue: Int?,
 			currencyId: UUID,
 			creditorId: UUID?,
 			borrowerAmounts: [UUID: Double?]

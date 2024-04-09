@@ -35,7 +35,7 @@ public extension Array where Element == TransferUnit {
 	}
 
 	var amountsSum: [Amount] {
-		var dictionary = [Currency: Double]()
+		var dictionary = [Currency: Int]()
 		amounts
 			.compactMap { $0 }
 			.forEach { dictionary[$0.currency, default: 0] += $0.valueOrZero }
