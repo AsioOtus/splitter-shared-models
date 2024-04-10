@@ -6,14 +6,14 @@ extension TransferSplitGroup {
 		public let amountValue: Int?
 		public let currencyId: UUID
 		public let creditorId: UUID?
-		public let borrowerAmounts: [UUID: Double?]
+		public let borrowerAmounts: [UUID: Int?]
 
 		public init (
 			info: TransferUnit.Info,
 			amountValue: Int?,
 			currencyId: UUID,
 			creditorId: UUID?,
-			borrowerAmounts: [UUID: Double?]
+			borrowerAmounts: [UUID: Int?]
 		) {
 			self.info = info
 			self.amountValue = amountValue

@@ -5,14 +5,14 @@ public struct TransferSplitGroup: Identifiable, Hashable, Codable {
 	public let info: TransferUnit.Info
 	public let amount: Amount
 	public let creditor: User.Compact?
-	public let borrowerAmounts: [User.Compact: Double?]
+	public let borrowerAmounts: [User.Compact: Int?]
 
 	public init (
 		id: UUID,
 		info: TransferUnit.Info,
 		amount: Amount,
 		creditor: User.Compact?,
-		borrowerAmounts: [User.Compact: Double?]
+		borrowerAmounts: [User.Compact: Int?]
 	) {
 		self.id = id
 		self.info = info

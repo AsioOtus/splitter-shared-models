@@ -7,7 +7,7 @@ extension TransferSplitGroup {
 		public let amountValue: Int?
 		public let currencyId: UUID
 		public let creditorId: UUID?
-		public let borrowerAmounts: [UUID: Double?]
+		public let borrowerAmounts: [UUID: Int?]
 
 		public init (
 			id: UUID,
@@ -15,7 +15,7 @@ extension TransferSplitGroup {
 			amountValue: Int?,
 			currencyId: UUID,
 			creditorId: UUID?,
-			borrowerAmounts: [UUID: Double?]
+			borrowerAmounts: [UUID: Int?]
 		) {
 			self.id = id
 			self.info = info
